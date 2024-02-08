@@ -1,27 +1,100 @@
 const sheetId = '1UU6r25tKgOWeOLl4Dto402z3L4xj5-VQHuNf5xwwMPI';
 const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
-// https://docs.google.com/spreadsheets/d/1UU6r25tKgOWeOLl4Dto402z3L4xj5-VQHuNf5xwwMPI/edit#gid=1403632118
+
 const sheetName = 'Sheet1'; 
-const itPavilion = ''
+const itPavilion = 'A pavilion';
+const tnPavilion = 'B pavilion';
+const startupPavilion = 'E pavilion';
+const industryPavilion = 'F pavilion';
+const podPavilion = 'G pavilion';
+
 const gid0 = '0'; // Update this with the correct gid of your sheet
+const gidA = '1533805534';
+const gidB = '1949496624';
+const gidE = '183914268';
+const gidF = '1403632118';
+const gidG = '883052713';
+
 const query = encodeURIComponent(`SELECT * WHERE A IS NOT NULL`); // Assuming your data starts from column A
-const url = `${base}gid=${gid0}&sheet=${sheetName}&tq=${query}`;
 
-document.addEventListener('DOMContentLoaded', fetchData);
+const url1 = `${base}gid=${gid0}&sheet=${sheetName}&tq=${query}`;
+const urlA = `${base}gid=${gidA}&sheet=${itPavilion}&tq=${query}`;
+const urlB = `${base}gid=${gidB}&sheet=${tnPavilion}&tq=${query}`;
+const urlE = `${base}gid=${gidE}&sheet=${startupPavilion}&tq=${query}`;
+const urlF = `${base}gid=${gidF}&sheet=${industryPavilion}&tq=${query}`;
+const urlG = `${base}gid=${gidG}&sheet=${podPavilion}&tq=${query}`;
 
-function fetchData() {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            const jsonData = JSON.parse(data.substring(47).slice(0, -2));
-            processData(jsonData);
-            generatePieCharts(jsonData); 
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchData(url1)
+        .then(jsonData1 => {
+            processData(jsonData1); // Process data from url1
+            generatePieCharts(jsonData1);
         })
         .catch(error => {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching data from url1:', error);
         });
-}
 
+    fetchData(urlA)
+        .then(jsonDataA => {
+            processDataA(jsonDataA); // Process data from urlA
+        })
+        .catch(error => {
+            console.error('Error fetching data from urlA:', error);
+        });
+
+    fetchData(urlB)
+        .then(jsonDataB => {
+            processDataB(jsonDataB); // Process data from urlB
+        })
+        .catch(error => {
+            console.error('Error fetching data from urlB:', error);
+        });
+
+    fetchData(urlE)
+        .then(jsonDataE => {
+            processDataE(jsonDataE); // Process data from urlE
+        })
+        .catch(error => {
+            console.error('Error fetching data from urlE:', error);
+        });
+
+    fetchData(urlF)
+        .then(jsonDataF => {
+            processDataF(jsonDataF); // Process data from urlF
+        })
+        .catch(error => {
+            console.error('Error fetching data from urlF:', error);
+        });
+
+    fetchData(urlG)
+        .then(jsonDataG => {
+            processDataG(jsonDataG); // Process data from urlG
+        })
+        .catch(error => {
+            console.error('Error fetching data from urlG:', error);
+        });
+});
+
+function fetchData(url) {
+    return new Promise((resolve, reject) => {
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network error');
+                }
+                return response.text();
+            })
+            .then(data => {
+                const parsedData = JSON.parse(data.substring(47).slice(0, -2));
+                resolve(parsedData);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                reject(error);
+            });
+    });
+}
 
 function processData(jsonData) {
     const tableBody = document.querySelector('#data-table tbody');
@@ -31,26 +104,123 @@ function processData(jsonData) {
         const rowData = rows[i];
         const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
 
-        // Create table row
         const row = document.createElement('tr');
 
-        // Loop over the maximum number of cells (limited to 8)
         for (let j = 0; j < Math.min(rowDataArray.length, 7); j++) {
-            const cellData = rowDataArray[j] || ''; // Use empty string if cellData doesn't exist
+            const cellData = rowDataArray[j] || '';
             const cell = document.createElement('td');
             cell.textContent = cellData;
             row.appendChild(cell);
         }
 
-        // Add the row to the table body
         tableBody.appendChild(row);
     }
 }
 
+function processDataA(jsonDataA) {
+    const tableBody = document.querySelector('#A-table tbody');
+    const rows = jsonDataA.table.rows;
 
+    for (let i = 0; i < rows.length; i++) {
+        const rowData = rows[i];
+        const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
 
+        const row = document.createElement('tr');
 
+        for (let j = 0; j < Math.min(rowDataArray.length, 5); j++) {
+            const cellData = rowDataArray[j] || '';
+            const cell = document.createElement('td');
+            cell.textContent = cellData;
+            row.appendChild(cell);
+        }
 
+        tableBody.appendChild(row);
+    }
+}
+
+function processDataB(jsonDataB) {
+    const tableBody = document.querySelector('#B-table tbody');
+    const rows = jsonDataB.table.rows;
+
+    for (let i = 0; i < rows.length; i++) {
+        const rowData = rows[i];
+        const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
+
+        const row = document.createElement('tr');
+
+        for (let j = 0; j < Math.min(rowDataArray.length, 5); j++) {
+            const cellData = rowDataArray[j] || '';
+            const cell = document.createElement('td');
+            cell.textContent = cellData;
+            row.appendChild(cell);
+        }
+
+        tableBody.appendChild(row);
+    }
+}
+
+function processDataE(jsonDataE) {
+    const tableBody = document.querySelector('#E-table tbody');
+    const rows = jsonDataE.table.rows;
+
+    for (let i = 1; i < rows.length; i++) {
+        const rowData = rows[i];
+        const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
+
+        const row = document.createElement('tr');
+
+        for (let j = 0; j < Math.min(rowDataArray.length, 2); j++) {
+            const cellData = rowDataArray[j] || '';
+            const cell = document.createElement('td');
+            cell.textContent = cellData;
+            row.appendChild(cell);
+        }
+
+        tableBody.appendChild(row);
+    }
+}
+
+function processDataF(jsonDataF) {
+    const tableBody = document.querySelector('#F-table tbody');
+    const rows = jsonDataF.table.rows;
+
+    for (let i = 1; i < rows.length; i++) {
+        const rowData = rows[i];
+        const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
+
+        const row = document.createElement('tr');
+
+        for (let j = 0; j < Math.min(rowDataArray.length, 2); j++) {
+            const cellData = rowDataArray[j] || '';
+            const cell = document.createElement('td');
+            cell.textContent = cellData;
+            row.appendChild(cell);
+        }
+
+        tableBody.appendChild(row);
+    }
+}
+
+function processDataG(jsonDataG) {
+    const tableBody = document.querySelector('#G-table tbody');
+    const rows = jsonDataG.table.rows;
+
+    for (let i = 1; i < rows.length; i++) {
+        const rowData = rows[i];
+        const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
+
+        const row = document.createElement('tr');
+
+        for (let j = 0; j < Math.min(rowDataArray.length, 2); j++) {
+            const cellData = rowDataArray[j] || '';
+            const cell = document.createElement('td');
+            cell.textContent = cellData;
+            row.appendChild(cell);
+        }
+
+        tableBody.appendChild(row);
+    }
+}
 
 
 
