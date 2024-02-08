@@ -1,9 +1,11 @@
 const sheetId = '1UU6r25tKgOWeOLl4Dto402z3L4xj5-VQHuNf5xwwMPI';
 const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
+// https://docs.google.com/spreadsheets/d/1UU6r25tKgOWeOLl4Dto402z3L4xj5-VQHuNf5xwwMPI/edit#gid=1403632118
 const sheetName = 'Sheet1'; 
-const gid = '0'; // Update this with the correct gid of your sheet
+const itPavilion = ''
+const gid0 = '0'; // Update this with the correct gid of your sheet
 const query = encodeURIComponent(`SELECT * WHERE A IS NOT NULL`); // Assuming your data starts from column A
-const url = `${base}gid=${gid}&sheet=${sheetName}&tq=${query}`;
+const url = `${base}gid=${gid0}&sheet=${sheetName}&tq=${query}`;
 
 document.addEventListener('DOMContentLoaded', fetchData);
 
@@ -33,7 +35,7 @@ function processData(jsonData) {
         const row = document.createElement('tr');
 
         // Loop over the maximum number of cells (limited to 8)
-        for (let j = 0; j < Math.min(rowDataArray.length, 8); j++) {
+        for (let j = 0; j < Math.min(rowDataArray.length, 7); j++) {
             const cellData = rowDataArray[j] || ''; // Use empty string if cellData doesn't exist
             const cell = document.createElement('td');
             cell.textContent = cellData;
@@ -58,37 +60,37 @@ function generatePieCharts(jsonData) {
     const chartConfigs = [
         {
             canvasId: 'it-chart',
-            title: 'IT Pavilion',
+            title: 'Total Pavilion Size (Sqm) :216 Sqm ',
             backgroundColor: ['springgreen','turquoise']
         },
         {
             canvasId: 'tn-chart',
-            title: 'Tamil Nadu Pavilion',
+            title: 'Total Pavilion Size (Sqm) :288 Sqm',
             backgroundColor: ['royalblue','steelblue']
         },
         {
             canvasId: 'country-chart',
-            title: 'Country Pavilion',
+            title: 'Total Pavilion Size (Sqm) : 72 Sqm',
             backgroundColor: ['gold','khaki']
         },
         {
             canvasId: 'yt-chart',
-            title: 'Youtube Pavilion',
+            title: 'Total Pavilion Size (Sqm) : 252 Sqm',
             backgroundColor: ['red', 'tomato']
         },
         {
             canvasId: 'startup-chart',
-            title: 'Startup stalls',
+            title: 'Total no of Startup Stalls: 21 ',
             backgroundColor: ['deepskyblue', 'lightskyblue']
         },
         {
             canvasId: 'al-chart',
-            title: 'Industry Stalls',
+            title: 'Total no of Industry Stalls: 56',
             backgroundColor: ['dodgerblue', 'lightskyblue']
         },
         {
             canvasId: 'pod-chart',
-            title: 'Startup Pods',
+            title: 'Total no of Startup pods: 52 ',
             backgroundColor: ['orangered', 'coral']
         }
     ];

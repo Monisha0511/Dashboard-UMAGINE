@@ -23,7 +23,7 @@ body{
 }
 
 h6{
-    color:cadetblue;
+    color:Red;
 }
 /*** Spinner ***/
 #spinner {
@@ -44,6 +44,16 @@ h6{
 .btn {
     transition: .5s;
 }
+
+.card{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.23);
+    margin:40px 20px 0px;
+}
+
+.chart-row{
+    justify-content: center;
+}
+
 
 .btn-square {
     width: 38px;
@@ -296,4 +306,8 @@ h6{
 .testimonial-carousel .owl-dot.active {
     background: var(--secondary);
     border-color: var(--primary);
+}
+
+#country-chart{
+    align-self: center;
 }

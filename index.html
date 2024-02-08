@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <title>Dashboard - UMAGINE 2024</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -109,7 +109,6 @@
                                     <th scope="col">Number of pavilion</th>
                                     <th scope="col">Allocated</th>
                                     <th scope="col">Yet to be Allocated</th>
-                                    <th scope="col">Allocated to organization</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -178,64 +177,60 @@
 
 
 
-            <!-- Sales Chart Start -->
-        <div>
-            
-            <div class="container-fluid">
-                <div class="row g-4">
+         
+            <div class="container pie-chart-al">
+                <div class="row g-4 chart-row">
                     <div class="card col-sm">
                         <div class="text-center rounded p-4">
                             <div class="d-flex align-items-center mb-4">
                                 <h6 class="mb-0">IT Pavilion</h6>
                             </div>
-                            <canvas id="it-chart" width="450" height="300"></canvas>
+                            <canvas id="it-chart"></canvas>
                         </div>
                     </div>
                     <div class="card col-sm">
                         <div class="text-center rounded p-4">
                             <div class="d-flex align-items-center mb-4">
                                 <h6 class="mb-0">Tamil Nadu Pavilion</h6>
-                                <canvas id="tn-chart" width="450" height="300"></canvas>
+                                <canvas id="tn-chart"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Sales Chart middle -->
             
-            <div class="row g-4">
+            <div class="row g-4 chart-row">
                 <div class="card col-sm">
-                    <div class="text-center rounded p-4">
-                        <div class="d-flex align-items-center mb-4">
+                    <div class="rounded p-4">
+                        <div class="d-flex mb-4">
                             <h6 class="mb-0">Country Pavilion</h6>
                         </div>
-                        <canvas id="country-chart" width="450" height="300"></canvas>
+                        <canvas id="country-chart"></canvas>
                     </div>
                 </div>
                 <div class="card col-sm">
-                    <div class="text-center rounded p-4">
-                        <div class="d-flex align-items-center mb-4">
+                    <div class="rounded p-4">
+                        <div class="d-flex mb-4">
                             <h6 class="mb-0">Youtube Pavilion</h6>
-                            <canvas id="yt-chart" width="450" height="300"></canvas>
+                            <canvas id="yt-chart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Sales Chart End -->
+            
             <div class="row g-4">
                 <div class="card col-sm">
                     <div class="text-center rounded p-4">
                         <div class="d-flex align-items-center mb-4">
                             <h6 class="mb-0">Startup stalls</h6>
                         </div>
-                        <canvas id="startup-chart" width="450" height="300"></canvas>
+                        <canvas id="startup-chart"></canvas>
                     </div>
                 </div>
                 <div class="card col-sm">
                     <div class="text-center rounded p-4">
                         <div class="d-flex align-items-center mb-4">
                             <h6 class="mb-0">Industry Stalls</h6>
-                            <canvas id="al-chart" width="450" height="300"></canvas>
+                            <canvas id="al-chart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -246,10 +241,12 @@
                         <div class="d-flex align-items-center mb-4">
                             <h6 class="mb-0">Startup pods</h6>
                         </div>
-                        <canvas id="pod-chart" width="450" height="300"></canvas>
+                        <canvas id="pod-chart"></canvas>
                     </div>
                 </div>
             </div>
+        </div>
+
         
 
 
@@ -257,9 +254,7 @@
          
 
 
-         
-        </div>
-        <!-- Content End -->
+      
 
 
         <!-- Back to Top -->
