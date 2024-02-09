@@ -162,18 +162,37 @@ function processDataB(jsonDataB) {
 function processDataE(jsonDataE) {
     const tableBody = document.querySelector('#E-table tbody');
     const rows = jsonDataE.table.rows;
+    const dataLength = rows.length - 1; 
+    const rowsPerColumn = Math.ceil(dataLength / 4); // Calculate number of rows per column
 
-    for (let i = 1; i < rows.length; i++) {
-        const rowData = rows[i];
-        const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
-
+    // Loop to create rows for each column
+    for (let i = 0; i < rowsPerColumn; i++) {
         const row = document.createElement('tr');
 
-        for (let j = 0; j < Math.min(rowDataArray.length, 2); j++) {
-            const cellData = rowDataArray[j] || '';
-            const cell = document.createElement('td');
-            cell.textContent = cellData;
-            row.appendChild(cell);
+        // Loop to create cells for each row
+        for (let j = 0; j < 4; j++) {
+            const index = i + j * rowsPerColumn + 1; // Calculate the index based on current row and column
+            if (index <= dataLength) {
+                const rowData = rows[index];
+                const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
+
+                const cell = document.createElement('td');
+                cell.textContent = rowDataArray[0] || ''; // Assuming you want data from the first column
+                row.appendChild(cell);
+
+                const cell2 = document.createElement('td');
+                cell2.textContent = rowDataArray[1] || ''; // Assuming you want data from the second column
+                row.appendChild(cell2);
+            } else {
+                // If there is no data for this cell, create an empty cell
+                const cell = document.createElement('td');
+                cell.textContent = '';
+                row.appendChild(cell);
+
+                const cell2 = document.createElement('td');
+                cell2.textContent = '';
+                row.appendChild(cell2);
+            }
         }
 
         tableBody.appendChild(row);
@@ -183,18 +202,37 @@ function processDataE(jsonDataE) {
 function processDataF(jsonDataF) {
     const tableBody = document.querySelector('#F-table tbody');
     const rows = jsonDataF.table.rows;
+    const dataLength = rows.length - 1; 
+    const rowsPerColumn = Math.ceil(dataLength / 4); // Calculate number of rows per column
 
-    for (let i = 1; i < rows.length; i++) {
-        const rowData = rows[i];
-        const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
-
+    // Loop to create rows for each column
+    for (let i = 0; i < rowsPerColumn; i++) {
         const row = document.createElement('tr');
 
-        for (let j = 0; j < Math.min(rowDataArray.length, 2); j++) {
-            const cellData = rowDataArray[j] || '';
-            const cell = document.createElement('td');
-            cell.textContent = cellData;
-            row.appendChild(cell);
+        // Loop to create cells for each row
+        for (let j = 0; j < 4; j++) {
+            const index = i + j * rowsPerColumn + 1; // Calculate the index based on current row and column
+            if (index <= dataLength) {
+                const rowData = rows[index];
+                const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
+
+                const cell = document.createElement('td');
+                cell.textContent = rowDataArray[0] || ''; // Assuming you want data from the first column
+                row.appendChild(cell);
+
+                const cell2 = document.createElement('td');
+                cell2.textContent = rowDataArray[1] || ''; // Assuming you want data from the second column
+                row.appendChild(cell2);
+            } else {
+                // If there is no data for this cell, create an empty cell
+                const cell = document.createElement('td');
+                cell.textContent = '';
+                row.appendChild(cell);
+
+                const cell2 = document.createElement('td');
+                cell2.textContent = '';
+                row.appendChild(cell2);
+            }
         }
 
         tableBody.appendChild(row);
@@ -204,24 +242,42 @@ function processDataF(jsonDataF) {
 function processDataG(jsonDataG) {
     const tableBody = document.querySelector('#G-table tbody');
     const rows = jsonDataG.table.rows;
+    const dataLength = rows.length - 1; 
+    const rowsPerColumn = Math.ceil(dataLength / 4); // Calculate number of rows per column
 
-    for (let i = 1; i < rows.length; i++) {
-        const rowData = rows[i];
-        const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
-
+    // Loop to create rows for each column
+    for (let i = 0; i < rowsPerColumn; i++) {
         const row = document.createElement('tr');
 
-        for (let j = 0; j < Math.min(rowDataArray.length, 2); j++) {
-            const cellData = rowDataArray[j] || '';
-            const cell = document.createElement('td');
-            cell.textContent = cellData;
-            row.appendChild(cell);
+        // Loop to create cells for each row
+        for (let j = 0; j < 4; j++) {
+            const index = i + j * rowsPerColumn + 1; // Calculate the index based on current row and column
+            if (index <= dataLength) {
+                const rowData = rows[index];
+                const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
+
+                const cell = document.createElement('td');
+                cell.textContent = rowDataArray[0] || ''; // Assuming you want data from the first column
+                row.appendChild(cell);
+
+                const cell2 = document.createElement('td');
+                cell2.textContent = rowDataArray[1] || ''; // Assuming you want data from the second column
+                row.appendChild(cell2);
+            } else {
+                // If there is no data for this cell, create an empty cell
+                const cell = document.createElement('td');
+                cell.textContent = '';
+                row.appendChild(cell);
+
+                const cell2 = document.createElement('td');
+                cell2.textContent = '';
+                row.appendChild(cell2);
+            }
         }
 
         tableBody.appendChild(row);
     }
 }
-
 
 
 
@@ -239,9 +295,14 @@ function generatePieCharts(jsonData) {
             backgroundColor: ['royalblue','steelblue']
         },
         {
-            canvasId: 'country-chart',
+            canvasId: 'c1-chart',
             title: 'Total Pavilion Size (Sqm) : 72 Sqm',
             backgroundColor: ['gold','khaki']
+        },
+        {
+            canvasId: 'c2-chart',
+            title: 'Total Pavilion Size (Sqm) : 72 Sqm',
+            backgroundColor: ['gold','yellow']
         },
         {
             canvasId: 'yt-chart',

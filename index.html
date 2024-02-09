@@ -85,7 +85,7 @@
         <!-- Content Start -->
         <div class="content open">
           <div style="color:darkgreen;font-weight:bold;font-size: large;text-align: center;">
-             Data Visualizer - UMAGINE 2024
+             <h2> Visualizer - UMAGINE 2024 </h2>
           </div>
 
            
@@ -100,7 +100,7 @@
                     </div>
                     <div class="table-responsive">
                         <table id="data-table" class="table text-start align-middle table-bordered table-hover mb-0">
-                            <!-- <thead>
+                            <thead>
                                 <tr class="text" style="background-color: rgb(38, 54, 228);color:white;font-style: bold;">
                                     <th scope="col">Pavilion Type</th>
                                     <th scope="col">Pavilion name</th>
@@ -110,7 +110,7 @@
                                     <th scope="col">Allocated</th>
                                     <th scope="col">Yet to be Allocated</th>
                                 </tr>
-                            </thead> -->
+                            </thead>
                             <tbody>
                                 <!-- Dynamically generated table rows will be added here -->
                             </tbody>
@@ -132,7 +132,7 @@
                                     <th scope="col">Confirmation received for stall booking</th>
                                     <th scope="col">Allocated slots</th>
                                 </tr>
-                            </thead> -->
+                            </thead>-->
                             <tbody>
                                 <!-- Dynamically generated table rows will be added here -->
                             </tbody>
@@ -153,8 +153,8 @@
                                 <th scope="col">Preliminary discussion attended</th>
                                 <th scope="col">Confirmation received for stall booking</th>
                                 <th scope="col">Allocated slots</th>
-                            </tr>
-                        </thead> -->
+                            </tr> -->
+                        </thead>
                         <tbody>
                             <!-- Dynamically generated table rows will be added here -->
                         </tbody>
@@ -228,72 +228,69 @@
                             <div class="d-flex align-items-center mb-4">
                                 <h6 class="mb-0">IT Pavilion</h6>
                             </div>
-                            <canvas id="it-chart"></canvas>
+                            <canvas class="mx-auto" style="display: block;" id="it-chart"></canvas>
                         </div>
                     </div>
                     <div class="card col-sm">
                         <div class="text-center rounded p-4">
                             <div class="d-flex align-items-center mb-4">
                                 <h6 class="mb-0">Tamil Nadu Pavilion</h6>
-                                <canvas id="tn-chart"></canvas>
                             </div>
+                            <canvas class="mx-auto" style="display: block;" id="tn-chart"></canvas>
                         </div>
                     </div>
                 </div>
             
             <div class="row g-4 chart-row">
                 <div class="card col-sm">
-                    <div class="rounded p-4">
-                        <div class="d-flex mb-4">
-                            <h6 class="mb-0">Country Pavilion</h6>
+                    <div class="text-center rounded p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <h6 class="mb-0">Gaming</h6>
                         </div>
-                        <canvas id="country-chart"></canvas>
+                        <canvas class="mx-auto" style="display: block;" id="c1-chart"></canvas>
                     </div>
                 </div>
+           
+                <div class="card col-sm">
+                    <div class="rounded p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <h6 class="mb-0">AVGC</h6>
+                        </div>
+                        <canvas class="mx-auto" style="display: block;" id="c2-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 chart-row">
                 <div class="card col-sm">
                     <div class="text-center rounded p-4">
                         <div class="d-flex align-items-center mb-4">
                             <h6 class="mb-0">Youtube Pavilion</h6>
-                            <canvas id="yt-chart"></canvas>
                         </div>
+                        <canvas class="mx-auto" style="display: block;"  id="yt-chart"></canvas>
                     </div>
                 </div>
             </div>
             
-            <div class="row g-4">
+            <div class="row g-4"> 
                 <div class="card row">
                     <div class="text-center rounded p-4">
                         <div class="d-flex align-items-center mb-4">
                             <h6 class="mb-0">Startup stalls</h6>
                         </div>
-                        <canvas id="startup-chart"></canvas>
+                        <canvas class="mx-auto" style="display: block;" id="startup-chart"></canvas>
                     </div>
-                    <div class="table-responsive">
-                        <table id="E-table" class="table text-start align-middle table-bordered table-hover mb-0">
+                    <div>
+                        <div class="table-responsive">
+                            <table id="E-table" class="table text-start align-middle table-bordered table-hover mb-0">
                                 <thead>
                                     <tr class="text" style="background-color: rgb(38, 54, 228);color:white;font-style: bold;">
                                         <th scope="col">Pavilion slot</th>
                                         <th scope="col">Allocated to organization</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Dynamically generated table rows will be added here -->
-                                </tbody>
-                        </table>
-                    </div>
-                </div>
-    
-                </div>
-                <div class="card row">
-                    <div class="text-center rounded">
-                        <div class="d-flex align-items-center">
-                            <h6 class="mb-0">Industry Stalls</h6>
-                            <canvas id="al-chart"></canvas>
-                        </div>
-                        <div class="table-responsive">
-                            <table id="F-table" class="table text-start align-middle table-bordered table-hover mb-0">
-                                <thead>
-                                    <tr class="text" style="background-color: rgb(38, 54, 228);color:white;font-style: bold;">
+                                        <th scope="col">Pavilion slot</th>
+                                        <th scope="col">Allocated to organization</th>
+                                        <th scope="col">Pavilion slot</th>
+                                        <th scope="col">Allocated to organization</th>
                                         <th scope="col">Pavilion slot</th>
                                         <th scope="col">Allocated to organization</th>
                                     </tr>
@@ -304,30 +301,67 @@
                             </table>
                         </div>
                     </div>
-                    
-              
                 </div>
+    
+                </div>
+                
+                <div class="card row">
+                    <div class="text-center rounded">
+                        <div class="d-flex align-items-center">
+                            <h6 class="mb-0">Industry Stalls</h6>
+                        </div>
+                        <canvas class="mx-auto" style="display: block;" id="al-chart"></canvas>
+                    </div>
+                    <div>
+                        <div class="table-responsive">
+                            <table id="F-table" class="table text-start align-middle table-bordered table-hover mb-0">
+                                <thead>
+                                    <tr class="text" style="background-color: rgb(38, 54, 228);color:white;font-style: bold;">
+                                        <th scope="col">Pavilion slot</th>
+                                        <th scope="col">Allocated to organization</th>
+                                        <th scope="col">Pavilion slot</th>
+                                        <th scope="col">Allocated to organization</th>
+                                        <th scope="col">Pavilion slot</th>
+                                        <th scope="col">Allocated to organization</th>
+                                        <th scope="col">Pavilion slot</th>
+                                        <th scope="col">Allocated to organization</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Dynamically generated table rows will be added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div class="text-center rounded p-4">
                         <div class="d-flex align-items-center mb-4">
                             <h6 class="mb-0">Startup pods</h6>
                         </div>
-                        <canvas id="pod-chart"></canvas>
+                        <canvas class="mx-auto" style="display: block;" id="pod-chart"></canvas>
                     </div>
                       
-                <div class="table-responsive">
-                    <table id="G-table" class="table text-start align-middle table-bordered table-hover mb-0">
-                        <thead>
-                            <tr class="text" style="background-color: rgb(38, 54, 228);color:white;font-style: bold;">
+                    <div class="table-responsive">
+                        <table id="G-table" class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text" style="background-color: rgb(38, 54, 228);color:white;font-style: bold;">
                                 <th scope="col">Pavilion slot</th>
                                 <th scope="col">Allocated to organization</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Dynamically generated table rows will be added here -->
-                        </tbody>
-                    </table>
-                </div>
+                                <th scope="col">Pavilion slot</th>
+                                <th scope="col">Allocated to organization</th>
+                                <th scope="col">Pavilion slot</th>
+                                <th scope="col">Allocated to organization</th>
+                                <th scope="col">Pavilion slot</th>
+                                <th scope="col">Allocated to organization</th>    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamically generated table rows will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             
             </div>
@@ -347,12 +381,6 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
-
-
-   
-    
-    
 
 </body>
 
