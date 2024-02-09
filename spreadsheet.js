@@ -316,12 +316,12 @@ function generatePieCharts(jsonData) {
         },
         {
             canvasId: 'al-chart',
-            title: 'Total no of Industry Stalls: 56',
+            title: 'Total no of Industry Stalls: 64',
             backgroundColor: ['dodgerblue', 'lightskyblue']
         },
         {
             canvasId: 'pod-chart',
-            title: 'Total no of Startup pods: 52 ',
+            title: 'Total no of Startup pods: 92 ',
             backgroundColor: ['orangered', 'coral']
         }
     ];
