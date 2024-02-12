@@ -291,14 +291,10 @@ function generatePieCharts(jsonData) {
         },
         {
             canvasId: 'tn-chart',
-            title: 'Total Pavilion Size (Sqm) :288 Sqm',
+            title: 'Total Pavilion Size (Sqm) :396 Sqm',
             backgroundColor: ['royalblue','steelblue']
         },
-        {
-            canvasId: 'c1-chart',
-            title: 'Total Pavilion Size (Sqm) : 72 Sqm',
-            backgroundColor: ['gold','khaki']
-        },
+       
         {
             canvasId: 'c2-chart',
             title: 'Total Pavilion Size (Sqm) : 72 Sqm',

@@ -17,6 +17,8 @@
 body{
     background-color: #fff;
     color:black;
+    height: 100%;
+
 }
 .table{
     color: black !important;
