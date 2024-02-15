@@ -312,7 +312,7 @@ function generatePieCharts(jsonData) {
         },
         {
             canvasId: 'al-chart',
-            title: 'Total no of Industry Stalls: 64',
+            title: 'Total no of Industry Stalls: 50 ',
             backgroundColor: ['dodgerblue', 'lightskyblue']
         },
         {
