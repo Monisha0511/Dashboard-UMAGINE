@@ -7,6 +7,7 @@ const tnPavilion = 'B pavilion';
 const startupPavilion = 'E pavilion';
 const industryPavilion = 'F pavilion';
 const podPavilion = 'G pavilion';
+const avgc='AVGC';
 
 const gid0 = '0'; // Update this with the correct gid of your sheet
 const gidA = '1533805534';
@@ -14,6 +15,7 @@ const gidB = '1949496624';
 const gidE = '183914268';
 const gidF = '1403632118';
 const gidG = '883052713';
+const gidavgc = '553556467';
 
 const query = encodeURIComponent(`SELECT * WHERE A IS NOT NULL`); // Assuming your data starts from column A
 
@@ -23,6 +25,7 @@ const urlB = `${base}gid=${gidB}&sheet=${tnPavilion}&tq=${query}`;
 const urlE = `${base}gid=${gidE}&sheet=${startupPavilion}&tq=${query}`;
 const urlF = `${base}gid=${gidF}&sheet=${industryPavilion}&tq=${query}`;
 const urlG = `${base}gid=${gidG}&sheet=${podPavilion}&tq=${query}`;
+const urlavgc = `${base}gid=${gidavgc}&sheet=${avgc}&tq=${query}`;
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -49,6 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error fetching data from urlB:', error);
+        });
+
+    fetchData(urlavgc)
+        .then(jsonDataavgc => {
+            processDataavgc(jsonDataavgc); // Process data from urlavgc
+        })
+        .catch(error => {
+            console.error('Error fetching data from urlavgc:', error);
         });
 
     fetchData(urlE)
@@ -121,7 +132,7 @@ function processDataA(jsonDataA) {
     const tableBody = document.querySelector('#A-table tbody');
     const rows = jsonDataA.table.rows;
 
-    for (let i = 0; i < rows.length; i++) {
+    for (let i = 1; i < rows.length; i++) {
         const rowData = rows[i];
         const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
 
@@ -142,13 +153,34 @@ function processDataB(jsonDataB) {
     const tableBody = document.querySelector('#B-table tbody');
     const rows = jsonDataB.table.rows;
 
-    for (let i = 0; i < rows.length; i++) {
+    for (let i = 1; i < rows.length; i++) {
         const rowData = rows[i];
         const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
 
         const row = document.createElement('tr');
 
         for (let j = 0; j < Math.min(rowDataArray.length, 5); j++) {
+            const cellData = rowDataArray[j] || '';
+            const cell = document.createElement('td');
+            cell.textContent = cellData;
+            row.appendChild(cell);
+        }
+
+        tableBody.appendChild(row);
+    }
+}
+
+function processDataavgc(jsonDataavgc) {
+    const tableBody = document.querySelector('#avgc-table tbody');
+    const rows = jsonDataavgc.table.rows;
+
+    for (let i = 0; i < rows.length; i++) {
+        const rowData = rows[i];
+        const rowDataArray = rowData.c.map(cellData => cellData && typeof cellData === 'object' ? cellData.v : cellData);
+
+        const row = document.createElement('tr');
+
+        for (let j = 0; j < Math.min(rowDataArray.length, 7); j++) {
             const cellData = rowDataArray[j] || '';
             const cell = document.createElement('td');
             cell.textContent = cellData;
@@ -286,7 +318,7 @@ function generatePieCharts(jsonData) {
     const chartConfigs = [
         {
             canvasId: 'it-chart',
-            title: 'Total Pavilion Size (Sqm) :216 Sqm ',
+            title: 'Total Pavilion Size (Sqm) :252 Sqm ',
             backgroundColor: ['springgreen','turquoise']
         },
         {
@@ -302,7 +334,7 @@ function generatePieCharts(jsonData) {
         },
         {
             canvasId: 'yt-chart',
-            title: 'Total Pavilion Size (Sqm) : 252 Sqm',
+            title: 'Total Pavilion Size (Sqm) : 180 Sqm',
             backgroundColor: ['red', 'tomato']
         },
         {
@@ -312,7 +344,7 @@ function generatePieCharts(jsonData) {
         },
         {
             canvasId: 'al-chart',
-            title: 'Total no of Industry Stalls: 50 ',
+            title: 'Total no of Industry Stalls: 56 ',
             backgroundColor: ['dodgerblue', 'lightskyblue']
         },
         {
