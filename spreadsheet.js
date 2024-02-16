@@ -159,7 +159,7 @@ function processDataB(jsonDataB) {
 
         const row = document.createElement('tr');
 
-        for (let j = 0; j < Math.min(rowDataArray.length, 5); j++) {
+        for (let j = 0; j < Math.min(rowDataArray.length, 8); j++) {
             const cellData = rowDataArray[j] || '';
             const cell = document.createElement('td');
             cell.textContent = cellData;
